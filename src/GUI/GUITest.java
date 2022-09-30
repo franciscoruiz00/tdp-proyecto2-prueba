@@ -1,9 +1,12 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Image;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,11 +15,13 @@ import javax.swing.border.EmptyBorder;
 
 import Logica.Celda;
 import Logica.Juego;
+import javax.swing.JLabel;
+
 
 public class GUITest extends JFrame {
 
 	private JPanel contentPane;
-	private Juego juego;
+	private Juego miJuego;
 
 	/**
 	 * Launch the application.
@@ -43,15 +48,15 @@ public class GUITest extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		juego = new Juego();
-		contentPane.setLayout(new GridLayout(juego.getCantFilas(),juego.getCantColu()));
+		miJuego = new Juego();
 		
-		for (int i = 0; i < juego.getCantFilas(); i++) {
-			for(int j = 0; j < juego.getCantColu(); j++) {
-				Celda c = juego.getCelda(i, j);
-				ImageIcon image = c.getEntidadGraf().getGrafico();
-				
+		for (int i = 0; i < miJuego.getCantFilas(); i++) {
+			for(int j = 0; j < miJuego.getCantColu(); j++) {
+				Celda c = miJuego.getGrilla().getCelda(i, j);
+				String[] imagenes = c.getEntidadGrafica().getImagenes();
+				ImageIcon image = new ImageIcon("");
 	}
 
 }

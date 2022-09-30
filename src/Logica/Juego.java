@@ -8,7 +8,9 @@ public class Juego {
 	private int cantColumnas;
 	
 	public Juego() {
-		
+		this.cantColumnas = 20;
+		this.cantFilas = 20;
+		this.miGrilla = new Grilla(cantFilas, cantColumnas);
 		
 	}
 	
@@ -19,5 +21,9 @@ public class Juego {
 	
 	public int getCantColu() {
 		return this.cantColumnas;
+	}
+
+	public Grilla getGrilla(){
+		return miGrilla;
 	}
 }

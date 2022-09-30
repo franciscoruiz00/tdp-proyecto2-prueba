@@ -1,5 +1,5 @@
 package Logica;
 
-public class Entidad {
-
+public  class Entidad {
+	
 }
