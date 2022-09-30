@@ -6,9 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Logica.Alimento;
 import Logica.Celda;
+import Logica.Entidad;
 import Logica.EntidadGrafica;
+import Logica.Fondo;
 import Logica.Pared;
+import Logica.PowerUp;
 
 public class Grilla {
 
@@ -26,11 +30,6 @@ public class Grilla {
 				tablero[i][j] = new Celda(i,j);
 			}
 		}
-	}
-
-	public static void addEntidadG(Grilla g, EntidadGrafica ent,int fila,int col) {
-		g.getCelda(fila, col).setEntidadGrafica(ent);
-
 	}
 
 	public Celda getCelda(int i,int j) {
@@ -59,14 +58,14 @@ public class Grilla {
 			}
 
 			//# = pared
-			if (linea.startsWith("#")) {
+			if (linea.startsWith("/")) {
 				lineas.add(linea);
 				ancho = Math.max(ancho,linea.length());
 			}
 		}
 		alto = lineas.size();
 
-		Grilla nuevoTablero = new Grilla(ancho,alto);
+		Grilla nuevoTablero = new Grilla(20,20);
 
 		for(int i = 0; i < alto;i++) {
 			String linea = (String) lineas.get(i);
@@ -76,14 +75,20 @@ public class Grilla {
 				//chequea si el char representa una entidad
 				if ( ch == '#' ) {
 						c.setEntidad(new Pared());
-						EntidadGrafica entidadG = c.getEntidadGrafica();
-						addEntidadG(nuevoTablero,entidadG, i, ch);
+						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
+				
 				} else if( ch == 'P') {
-
+						c.setEntidad(new PowerUp());
+						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
 				}
 				else if( ch == 'A') {
-
+						c.setEntidad(new Alimento());
+						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
 				}
+				else if( ch == ' ') {
+					c.setEntidad(new Fondo());
+					c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
+			}
 			}
 		}
 		return nuevoTablero;

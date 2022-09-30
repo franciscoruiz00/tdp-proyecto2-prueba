@@ -22,6 +22,7 @@ public class GUITest extends JFrame {
 
 	private JPanel contentPane;
 	private Juego miJuego;
+	private JLabel lblCasilla;
 
 	/**
 	 * Launch the application.
@@ -48,16 +49,22 @@ public class GUITest extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
-		
+
+
 		miJuego = new Juego();
-		
+
+		contentPane.setLayout(new GridLayout(miJuego.getCantFilas(), miJuego.getCantColu()));
+
+		lblCasilla = new JLabel();
+		contentPane.add(lblCasilla);
+
+
 		for (int i = 0; i < miJuego.getCantFilas(); i++) {
 			for(int j = 0; j < miJuego.getCantColu(); j++) {
 				Celda c = miJuego.getGrilla().getCelda(i, j);
-				String[] imagenes = c.getEntidadGrafica().getImagenes();
-				ImageIcon image = new ImageIcon("");
-	}
+				ImageIcon image = c.getEntidadGrafica().getGrafico();
+				lblCasilla.setIcon(image);
+			}
+		}
 
-}
-}}
+	}}

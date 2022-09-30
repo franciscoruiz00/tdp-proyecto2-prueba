@@ -4,10 +4,11 @@ import javax.swing.ImageIcon;
 
 public class EntidadGrafica {
 	private ImageIcon grafico;
-	private String[] images = {"/imagenes/#.png", "/imagenes/A.jpg", "/imagenes/P.jpg"} ;
+	private String[] images;
 
-	public EntidadGrafica() {
-		this.grafico = new ImageIcon();
+	public EntidadGrafica(Entidad e) {
+		this.images = new String[] {"/imagenes/#.png", "/imagenes/A.jpg", "/imagenes/P.jpg"} ;;
+		this.grafico = new ImageIcon(images[e.getPosicion()]);
 	}
 
 	public ImageIcon getGrafico() {

@@ -1,5 +1,5 @@
 package Logica;
 
-public class PowerUp {
+public class PowerUp extends Entidad{
 
 }
