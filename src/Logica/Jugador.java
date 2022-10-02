@@ -5,8 +5,8 @@ public class Jugador {
 	private String nombre;
 	
 	public Jugador(String n) {
-		setPuntaje(0);
-		setNombre(n);
+		puntaje = 0;
+		nombre = n;
 	}
 	
 	public void aumentarPuntaje(int p) {
