@@ -12,6 +12,7 @@ public class main {
 		
 		miGUI.setVisible(true);
 		
+		miGUI.iniciarHiloJuego();
 	}
 	
 

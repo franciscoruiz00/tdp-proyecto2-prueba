@@ -16,12 +16,12 @@ import javax.swing.JLabel;
 import java.awt.Color;
 
 
-public class GUITest extends JFrame {
+public class GUITest extends JFrame implements Runnable{
 
 	private JPanel contentPane;
 	private Juego miJuego;
 	private JLabel lblCasilla;
-	public static boolean iniciarHilo=true;
+	Thread hiloJuego;
 
 	
 	/**
@@ -61,4 +61,31 @@ public class GUITest extends JFrame {
 			}
 		}
 
-	}}
+	}
+
+
+	public void iniciarHiloJuego() {
+		hiloJuego = new Thread (this);
+		hiloJuego.start();
+	}
+	
+
+	public void run() {
+		while(hiloJuego != null) {
+			
+			System.out.println("El loop del juego inicio");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
