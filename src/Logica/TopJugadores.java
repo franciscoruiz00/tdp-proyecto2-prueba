@@ -19,7 +19,7 @@ public class TopJugadores implements Serializable {
 
 		@Override
 		public int compare(Jugador j1, Jugador j2) {
-			if(j1.getPuntaje()>j2.getPuntaje())
+			if(j1.getPuntaje()<j2.getPuntaje())
 				return -1;
 			else if(j2.getPuntaje()>j1.getPuntaje())
 				return 1;
