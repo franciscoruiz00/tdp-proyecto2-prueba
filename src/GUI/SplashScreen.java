@@ -35,12 +35,10 @@ public class SplashScreen {
 		lblNewLabel.setIcon(icon);
 		
 		frame.setVisible(true);
-		 try { Thread.sleep(duracion); } catch (Exception e) {}
-		 frame.setVisible(false);
-		 
+		 try { 
+			 	Thread.sleep(duracion); 
+		 } catch (Exception e) {}
+		 frame.setVisible(false); 
 	}
-	
-	
-	
 }
 

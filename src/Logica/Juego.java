@@ -17,9 +17,7 @@ public class Juego {
 		this.miGrilla = new Grilla(cantFilas, cantColumnas);
 		try {
 			miGrilla.cargarTablero("Nivel1.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e) {e.printStackTrace();
 		}
 		
 	}
