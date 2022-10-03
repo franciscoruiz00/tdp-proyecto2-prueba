@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,9 +8,7 @@ import java.util.LinkedList;
 
 import Logica.Alimento;
 import Logica.Celda;
-import Logica.Entidad;
 import Logica.EntidadGrafica;
-import Logica.Fondo;
 import Logica.Pared;
 import Logica.PowerUp;
 
@@ -135,12 +132,15 @@ public class Grilla {
 						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
 						nuevoTablero.setCelda(i, j, c);
 				}
+				/*
 				else if( ch == ' ') {
 					c.setEntidad(new Fondo());
 					c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
 					nuevoTablero.setCelda(i, j, c);
 			}
+			*/
 			}
+			
 		}
 		return nuevoTablero;
 	}

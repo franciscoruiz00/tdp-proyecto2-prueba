@@ -1,5 +1,7 @@
 package Logica;
 
+import java.util.PriorityQueue;
+
 public class testerTopPlayers {
 
 	
@@ -19,29 +21,37 @@ public class testerTopPlayers {
 		j4.aumentarPuntaje(1634);
 		
 		Jugador j5 = new Jugador("Julian"); 
-		j5.aumentarPuntaje(2);
+		j5.aumentarPuntaje(43212);
 		
-	    TopJugadores top5 = new TopJugadores();
+		Jugador j6 = new Jugador("Fran"); 
+		j6.aumentarPuntaje(50);
+		
+		TopJugadores top5 = new TopJugadores();
 	    
-	    
+
 	    try {
-	    	top5.guardar(j1);
-	    	top5.guardar(j2);
-	    	top5.guardar(j3);
-	    	top5.guardar(j4);
-			top5.guardar(j5);
-		} catch (Exception e) {e.printStackTrace();
-		}
-	   
-
-		try {
-			TopJugadores nuevo = top5.leer();
-				
-			while(!nuevo.getJugadores().isEmpty()) {
-				System.out.println(nuevo.getJugadores().remove().getNombre());
-			}
+	    	top5.agregarJugador(j1);
+	    	top5.agregarJugador(j2);
+	    	top5.agregarJugador(j3);
+	    	top5.agregarJugador(j4);
+	    	top5.agregarJugador(j5);
+	    	top5.agregarJugador(j6);
+	    	
+	    	top5.guardar();
+	    	
 		} catch (Exception e) {e.printStackTrace();}
-			
-	}
-
+	  
+	    
+		try {
+			PriorityQueue<Jugador> nuevo = top5.leer();
+			for(int i=0; i<5; i++) {
+				System.out.println(nuevo.remove().getNombre());
+				if(i==5)
+					break;
+			}
+		} catch (Exception e) {e.printStackTrace();}	
+	     
+		
+  }
+	
 }

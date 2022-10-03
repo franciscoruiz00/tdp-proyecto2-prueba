@@ -10,16 +10,12 @@ import java.util.PriorityQueue;
 
 public class TopJugadores implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
 	//Nombre del archivo que va a guardar el top de jugadores
 	private static String file = "configuration.tdp";
 	
 	//Creo un comparador para ordenar a la cola de mejor jugador a peor jugador
-	class playerComparator implements Comparator<Jugador>{
+	class playerComparator implements Comparator<Jugador>,Serializable{
 
 		@Override
 		public int compare(Jugador j1, Jugador j2) {
@@ -29,7 +25,6 @@ public class TopJugadores implements Serializable {
 				return 1;
 			else return 0;
 		}
-		
 	}
 	
 	private PriorityQueue<Jugador> misJugadores;
@@ -43,17 +38,13 @@ public class TopJugadores implements Serializable {
 		misJugadores.add(j1);
 	}
 	
-	//Retorna pero no elimina el mejor jugador
-	public Jugador getMejorJugador() {
-		return misJugadores.peek();
+	
+	public int getTamanio() {
+		return misJugadores.size();
 	}
 	
-	public PriorityQueue<Jugador> getJugadores(){
-		return misJugadores;
-	}
 	//Guarda en un archivo los top5 mejores jugadores ordenados de mejor a peor.
-	public void guardar(Jugador j) throws Exception {
-		misJugadores.add(j);
+	public void guardar() throws Exception {
 		FileOutputStream file = new FileOutputStream(TopJugadores.file);
 	    ObjectOutputStream out = new ObjectOutputStream(file);
 	    out.writeObject(misJugadores);
@@ -61,10 +52,11 @@ public class TopJugadores implements Serializable {
 	    file.close();
 	}	
 	
-	public TopJugadores leer() throws Exception {
+	public PriorityQueue<Jugador> leer() throws Exception {
 	    FileInputStream file = new FileInputStream(TopJugadores.file);
 	    ObjectInputStream in = new ObjectInputStream(file);
-	    TopJugadores top = (TopJugadores) in.readObject();
+	    @SuppressWarnings("unchecked")
+		PriorityQueue<Jugador> top = (PriorityQueue<Jugador>) in.readObject();
 	    in.close();
 	    file.close();
 	    return top;

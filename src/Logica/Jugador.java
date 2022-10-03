@@ -13,7 +13,7 @@ public class Jugador implements Serializable {
 	}
 	
 	public void aumentarPuntaje(int p) {
-		setPuntaje(getPuntaje() + p);
+		puntaje+=p;
 	}
 
 	public String getNombre() {
