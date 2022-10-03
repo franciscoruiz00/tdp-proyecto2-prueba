@@ -4,14 +4,14 @@ public class Celda {
 	private Integer coordFila;
 	private Integer coordColu;
 	private Entidad entidad;
-	private EntidadGrafica entidadGrafica;
+	private CeldaGrafica entidadGrafica;
 	private Integer estado;
 
 	public Celda(int fila, int columna) {
 		this.coordFila = fila;
 		this.coordColu = columna;
 		this.entidad = new Entidad();
-		this.entidadGrafica = new EntidadGrafica(entidad);
+		this.entidadGrafica = new CeldaGrafica(entidad);
 		this.estado = null;
 	}
 
@@ -47,15 +47,15 @@ public class Celda {
 		this.entidad = entidad;
 	}
 
-	public void setCelda(Integer fila,Integer colu, EntidadGrafica imag) {
+	public void setCelda(Integer fila,Integer colu, CeldaGrafica imag) {
 
 	}
 
-	public EntidadGrafica getEntidadGrafica() {
+	public CeldaGrafica getEntidadGrafica() {
 		return entidadGrafica;
 	}
 
-	public void setEntidadGrafica(EntidadGrafica entidadGrafica) {
+	public void setEntidadGrafica(CeldaGrafica entidadGrafica) {
 		this.entidadGrafica = entidadGrafica;
 	}
 }

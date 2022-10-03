@@ -73,7 +73,8 @@ public class GUITest extends JFrame implements Runnable{
 	public void run() {
 		while(hiloJuego != null) {
 			
-			System.out.println("El loop del juego inicio");
+			//System.out.println("El loop del juego inicio");
+			
 		}
 	}
 	

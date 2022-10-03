@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 import Logica.Alimento;
 import Logica.Celda;
-import Logica.EntidadGrafica;
+import Logica.CeldaGrafica;
 import Logica.Pared;
 import Logica.PowerUp;
 
@@ -17,7 +17,7 @@ public class Grilla {
 	private Celda tablero[][];
 	private int cantFilas;
 	private int cantColumnas;
-	private LinkedList<EntidadGrafica> entidadesGraficas;
+	private LinkedList<CeldaGrafica> entidadesGraficas;
 
 	/**
 	 * Constructor Grilla, crea una grilla de [filas][columnas] de tamaño
@@ -66,7 +66,7 @@ public class Grilla {
 	 * Añade a la Grilla la entidad grafica pasada por parametro
 	 * @param e: Entidad Grafica a añadir.
 	 */
-	public void agregarEntidadG(EntidadGrafica e) {
+	public void agregarEntidadG(CeldaGrafica e) {
 		this.entidadesGraficas.add(e);
 	}
 	
@@ -74,7 +74,7 @@ public class Grilla {
 	 * Remueve de la Grilla la entidad grafica pasada por parametro
 	 * @param e: Entidad Grafica a remover
 	 */
-	public void removerEntidadG(EntidadGrafica e) {
+	public void removerEntidadG(CeldaGrafica e) {
 		this.entidadesGraficas.remove(e);
 	}
 	
@@ -119,17 +119,17 @@ public class Grilla {
 				int entidad = ch - 'A';
 				if ( ch == '#' ) {
 						c.setEntidad(new Pared());
-						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
+						c.setEntidadGrafica(new CeldaGrafica(c.getEntidad()));
 						nuevoTablero.setCelda(i, j, c);
 				
 				} else if( ch == 'P') {
 						c.setEntidad(new PowerUp());
-						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
+						c.setEntidadGrafica(new CeldaGrafica(c.getEntidad()));
 						nuevoTablero.setCelda(i, j, c);
 				}
 				else if( ch == 'A') {
 						c.setEntidad(new Alimento());
-						c.setEntidadGrafica(new EntidadGrafica(c.getEntidad()));
+						c.setEntidadGrafica(new CeldaGrafica(c.getEntidad()));
 						nuevoTablero.setCelda(i, j, c);
 				}
 				/*

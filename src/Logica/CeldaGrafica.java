@@ -2,11 +2,11 @@ package Logica;
 
 import javax.swing.ImageIcon;
 
-public class EntidadGrafica {
+public class CeldaGrafica {
 	private ImageIcon grafico;
 	private String[] images;
 
-	public EntidadGrafica(Entidad e) {
+	public CeldaGrafica(Entidad e) {
 		this.images = new String[] {"/imagenes/#.png", "/imagenes/A.jpg", "/imagenes/P.jpg"} ;;
 		this.grafico = new ImageIcon(images[e.getPosicion()]);
 	}
